@@ -1,27 +1,32 @@
-# Test
+# Огородник
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+## Управление осуществляется стрелками. Начать игру - клавиша Enter. Выйти из игры - ESC.
 
-## Development server
+## Визуальное представление:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Квадраты разных цветов
+1. white - пустое поле
+2. brown - огородник внутри дома
+3. purple - огородник в поле
+4. blue - огородник
+5. red - бонус X2
+6. orange - морковь
+7. green - яблоко
 
-## Code scaffolding
+## Очки за игру:
+ 
+ 1. Морковь - 100
+ 2. Apple - 200
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Выводится следующая информация:
 
-## Build
+1. Временя до окончания раунда
+2. Очки набранные в текущем раунде
+3. Максимальное число очков за выигранные раунды
+4. Прогресс бар со временем до окончания раунда
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Пользователь может изменить следующие параметры:
+1. Число возможных овощей сгенерируемых на поле. min: 5, max: 15, default: 10
+2. Число возможных бонусов сгенерируемых на поле. min: 0, max: 3, default: 1
+3. Время раунда. min: 3, max: 20, default: 10
+4. Размер игрового поля. min: 10, max: 40, default: 10

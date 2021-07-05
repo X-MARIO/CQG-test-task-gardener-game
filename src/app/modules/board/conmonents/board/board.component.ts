@@ -36,16 +36,16 @@ export class BoardComponent implements OnInit {
 
   // Устанавливаем значения из Input
   setOptions(event: any): void {
-    if (Number(event.target.numberOfVegetables.value) > 5 && Number(event.target.numberOfVegetables.value) <= 15) {
+    if (Number(event.target.numberOfVegetables.value) >= 5 && Number(event.target.numberOfVegetables.value) <= 15) {
       this.numberOfVegetables = Number(event.target.numberOfVegetables.value);
     }
-    if (Number(event.target.numberOfBonuses.value) > 1 && Number(event.target.numberOfBonuses.value) <= 3) {
+    if (Number(event.target.numberOfBonuses.value) >= 0 && Number(event.target.numberOfBonuses.value) <= 3) {
       this.numberOfBonuses = Number(event.target.numberOfBonuses.value);
     }
-    if (Number(event.target.numberOfTime.value) > 5 && Number(event.target.numberOfTime.value) <= 20) {
+    if (Number(event.target.numberOfTime.value) >= 3 && Number(event.target.numberOfTime.value) <= 20) {
       this.numberOfTime = Number(event.target.numberOfTime.value) * 1000;
     }
-    if (Number(event.target.playingFieldSize.value) > 15 && Number(event.target.playingFieldSize.value) <= 40) {
+    if (Number(event.target.playingFieldSize.value) >= 10 && Number(event.target.playingFieldSize.value) <= 40) {
       this.playingFieldSize = Number(event.target.playingFieldSize.value);
     }
     console.log(this.numberOfVegetables, this.numberOfBonuses, this.numberOfTime, this.playingFieldSize);
@@ -202,7 +202,10 @@ export class BoardComponent implements OnInit {
   }
 
   // Генерирует возможное кол-во элементов заданных типов
-  generatedItems(count: number = 10, min: number, max: number) {
+  generatedItems(count: number, min: number, max: number) {
+    if (count === 0) {
+      return;
+    }
     for (let i = 0; i <= count; i++) {
       const x = Math.abs(Math.round(Math.random() * (this.playingFieldSize - 1)));
       const y = Math.abs(Math.round(Math.random() * (this.playingFieldSize - 1)));
