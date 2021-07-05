@@ -1,0 +1,33 @@
+<div class="grid">
+  <h1 class="overlay-title">Огородник</h1>
+  <form (ngSubmit)="setOptions($event)" class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Введите число элементов которое предстоит собрать</mat-label>
+      <input type="number" matInput placeholder="max: 15 && min: 5" value="10" name="numberOfVegetables">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Введите число бонусов которое появится на поле</mat-label>
+      <input type="number" matInput placeholder="max: 3 && min: 1" value="1" name="numberOfBonuses">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Введите время которое будет длиться раунд</mat-label>
+      <input type="number" matInput placeholder="max: 20 && min: 5" value="10" name="numberOfTime">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Введите размер игрового поля</mat-label>
+      <input type="number" matInput placeholder="max: 40 && min: 15" value="20" name="playingFieldSize">
+    </mat-form-field>
+    <button mat-button>Установить свои собственные значения</button>
+  </form>
+  <h1 *ngIf="getTheEnd()" [ngStyle]="getStyles(getWinGame())" class="end-game">{{modalText}}</h1>
+  <mat-progress-bar mode="determinate" value="{{valueProgressBar}}"></mat-progress-bar>
+  <canvas #board class="game-board"></canvas>
+  <div class="right-column">
+    <div>
+      <p>Времени до окончания раунда осталось: {{ timeToEnd }}</p>
+      <p>Очков в текущем раунде набрано: {{ points }}</p>
+      <p>Максимальное числа очков за раунд: {{ maxPoints }}</p>
+    </div>
+    <button (click)="play()" class="play-button">Начать игру</button>
+  </div>
+</div>
